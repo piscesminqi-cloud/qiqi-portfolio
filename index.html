@@ -10,13 +10,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
 }
 
 body {
     min-height: 100vh;
+    /* 改为flex垂直+水平居中 */
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 40px 20px;
     background: linear-gradient(135deg, #e0e7ff, #fce7f3);
 }
@@ -32,19 +34,21 @@ body {
     background: rgba(255,255,255,0.7);
     backdrop-filter: blur(20px);
     border-radius: 28px;
-    padding: 40px 30px;
+    padding: 40px 35px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
-/* 标题 */
+/* 标题 - 改为左对齐 */
 h1 {
-    text-align: center;
+    text-align: left;
     font-size: 26px;
     margin-bottom: 8px;
+    font-weight: 600;
 }
 
+/* 副标题 - 改为左对齐 */
 .subtitle {
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     color: #666;
     margin-bottom: 30px;
@@ -59,6 +63,8 @@ h1 {
 
 .project:last-child {
     border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 /* 项目标题 */
@@ -76,7 +82,7 @@ h1 {
     margin-bottom: 12px;
 }
 
-/* 按钮 */
+/* 按钮 - 改为左对齐 */
 .link-item {
     display: flex;
     align-items: center;
@@ -84,7 +90,7 @@ h1 {
 
     width: 100%;
     max-width: 320px;
-    margin: 10px auto;
+    margin: 10px 0;
 
     padding: 14px 16px;
     border-radius: 14px;
@@ -138,7 +144,7 @@ h1 {
 
         <!-- 项目1 -->
         <div class="project">
-            <div class="project-title">📄 基于保险条款的智能问答系统PRD文档</div>
+            <div class="project-title">📄 基于保险条款的智能问答系统</div>
             <div class="desc">
                 基于保险条款构建的智能问答系统，为内外用户提供高效问答，降本提效、提升查询效率与理解体验。
             </div>
@@ -153,7 +159,7 @@ h1 {
 
         <!-- 项目2 -->
         <div class="project">
-            <div class="project-title">🎯 搭子派（兴趣社交产品）</div>
+            <div class="project-title">🎯 搭子派</div>
             <div class="desc">
                 面向年轻人的兴趣社交平台，通过“搭子匹配”机制连接用户，降低社交门槛，提升线下活动参与效率与体验。
             </div>
