@@ -1,279 +1,184 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>你好编程猫，这里来自猫柒柒</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你好~ 这里是柒柒</title>
 
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+}
 
-        /* 渐变动画背景（简化版） */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(
-                135deg,
-                rgba(147, 197, 253, 0.3) 0%,
-                rgba(196, 181, 253, 0.3) 25%,
-                rgba(253, 164, 175, 0.3) 50%,
-                rgba(147, 197, 253, 0.3) 75%,
-                rgba(196, 181, 253, 0.3) 100%
-            );
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-        }
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e0e7ff, #fce7f3);
+}
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+/* 主容器 */
+.container {
+    width: 100%;
+    max-width: 560px;
+}
 
-        /* 毛玻璃卡片 */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 50px 40px;
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 0.8s ease-out;
-        }
+/* 卡片 */
+.card {
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* 标题 */
+h1 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
 
-        h1 {
-            color: #1f2937;
-            margin-bottom: 40px;
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
-        }
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 30px;
+}
 
-        .link-item {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* 这里改成居中！*/
-            gap: 12px;
-            text-decoration: none;
-            padding: 18px 24px;
-            margin: 16px 0;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            color: white;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
+/* 项目块 */
+.project {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
 
-        /* 关键：统一图标宽度 */
-        .icon {
-            width: 28px;
-            text-align: center;
-            font-size: 20px;
-            flex-shrink: 0;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
+.project:last-child {
+    border-bottom: none;
+}
 
-        .link-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+/* 项目标题 */
+.project-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
 
-        .link-item:hover::before {
-            opacity: 1;
-        }
+/* 描述 */
+.desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 12px;
+}
 
-        .link-item:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        }
+/* 按钮 */
+.link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 
-        /* PDF 按钮 - 莫兰迪蓝色 */
-        .pdf-link {
-            background: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
-            box-shadow: 0 4px 20px rgba(129, 140, 248, 0.3);
-        }
+    width: 100%;
+    max-width: 320px;
+    margin: 10px auto;
 
-        .pdf-link:hover {
-            box-shadow: 0 8px 30px rgba(129, 140, 248, 0.4);
-        }
+    padding: 14px 16px;
+    border-radius: 14px;
 
-        /* 原型按钮 - 莫兰迪紫色 */
-        .proto-link {
-            background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
-            box-shadow: 0 4px 20px rgba(167, 139, 250, 0.3);
-        }
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
 
-        .proto-link:hover {
-            box-shadow: 0 8px 30px rgba(167, 139, 250, 0.4);
-        }
+    transition: all 0.25s ease;
+}
 
-        .tip {
-            margin-top: 35px;
-            color: rgba(31, 41, 55, 0.6);
-            font-size: 13px;
-            line-height: 1.6;
-        }
+/* 图标 */
+.icon {
+    width: 28px;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
 
-        /* 响应式设计 */
-        @media (max-width: 600px) {
-            .glass-card {
-                padding: 40px 30px;
-                margin: 10px;
-            }
+/* 颜色 */
+.pdf {
+    background: linear-gradient(135deg, #818cf8, #6366f1);
+}
 
-            h1 {
-                font-size: 24px;
-            }
+.proto {
+    background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+}
 
-            .link-item {
-                padding: 16px 20px;
-                font-size: 15px;
-            }
-        }
+.link-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
 
-        /* 浮动装饰圆点 */
-        .floating-dot {
-            position: fixed;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            animation: float 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .dot-1 {
-            width: 60px;
-            height: 60px;
-            top: 10%;
-            left: 15%;
-            animation-delay: 0s;
-        }
-
-        .dot-2 {
-            width: 40px;
-            height: 40px;
-            top: 70%;
-            right: 20%;
-            animation-delay: 2s;
-        }
-
-        .dot-3 {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 10%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(-20px) rotate(180deg);
-                opacity: 0.6;
-            }
-        }
-    </style>
+/* 底部 */
+.tip {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+}
+</style>
 </head>
+
 <body>
-    <!-- 简化版渐变背景 -->
-    <div class="gradient-bg"></div>
 
-    <!-- 浮动装饰 -->
-    <div class="floating-dot dot-1"></div>
-    <div class="floating-dot dot-2"></div>
-    <div class="floating-dot dot-3"></div>
+<div class="container">
+    <div class="card">
 
-    <!-- 主卡片 -->
-    <div class="glass-card">
         <h1>✨ 柒柒的作品集</h1>
+        <div class="subtitle">产品设计 / PRD / 原型</div>
 
-        <!-- PDF 链接 -->
-        <a href="https://piscesminqi-cloud.github.io/qiqi-portfolio/PRD文档.pdf"
-           target="_blank"
-           class="link-item pdf-link">
-            <span class="icon">📄</span>
-            <span>查看PRD文档</span>
-        </a>
+        <!-- 项目1 -->
+        <div class="project">
+            <div class="project-title">📄 基于保险条款的智能问答系统PRD文档</div>
+            <div class="desc">
+                基于保险条款构建的智能问答系统，为内外用户提供高效问答，降本提效、提升查询效率与理解体验。
+            </div>
 
-        <!-- 移动端原型 -->
-        <a href="https://qhtunu.axshare.com/?g=4"
-           target="_blank"
-           class="link-item proto-link">
-            <span class="icon">📱</span>
-            <span>搭子派移动端原型</span>
-        </a>
+            <a href="https://piscesminqi-cloud.github.io/qiqi-portfolio/PRD文档.pdf"
+               target="_blank"
+               class="link-item pdf">
+                <span class="icon">📄</span>
+                <span>查看 PRD 文档</span>
+            </a>
+        </div>
 
-        <!-- PC端原型 -->
-        <a href="https://5958rh.axshare.com/?g=4"
-           target="_blank"
-           class="link-item proto-link">
-            <span class="icon">🖥️</span>
-            <span>搭子派PC端原型</span>
-        </a>
+        <!-- 项目2 -->
+        <div class="project">
+            <div class="project-title">🎯 搭子派（兴趣社交产品）</div>
+            <div class="desc">
+                面向年轻人的兴趣社交平台，通过“搭子匹配”机制连接用户，降低社交门槛，提升线下活动参与效率与体验。
+            </div>
+
+            <a href="https://qhtunu.axshare.com/?g=4"
+               target="_blank"
+               class="link-item proto">
+                <span class="icon">📱</span>
+                <span>移动端原型</span>
+            </a>
+
+            <a href="https://5958rh.axshare.com/?g=4"
+               target="_blank"
+               class="link-item proto">
+                <span class="icon">🖥️</span>
+                <span>PC端原型</span>
+            </a>
+        </div>
 
         <div class="tip">
-            点击任意链接，即可在新标签页打开查看 💫
+            点击按钮将在新标签页打开 💫
         </div>
+
     </div>
+</div>
 
-    <script>
-        // 可选：添加鼠标跟随效果（简化版）
-        document.addEventListener('mousemove', (e) => {
-            const dots = document.querySelectorAll('.floating-dot');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-
-            dots.forEach((dot, index) => {
-                const speed = (index + 1) * 5;
-                dot.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-            });
-        });
-    </script>
 </body>
 </html>
